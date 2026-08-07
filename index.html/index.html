@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fábrica de Energéticos - Processo Industrial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+        header {
+            background: linear-gradient(135deg, #ff5500, #ff0055);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 85, 0, 0.3);
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        nav {
+            background-color: #161b22;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #30363d;
+        }
+        nav a {
+            color: #ff5500;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #ff0055;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+            background: #161b22;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+        }
+        .intro h2 {
+            color: #ff5500;
+            margin-bottom: 15px;
+        }
+        .step {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #161b22;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #30363d;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .step-img {
+            flex: 1;
+            min-width: 300px;
+            max-height: 350px;
+            overflow: hidden;
+        }
+        .step-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .step-img img:hover {
+            transform: scale(1.05);
+        }
+        .step-content {
+            flex: 1;
+            padding: 30px;
+            min-width: 300px;
+        }
+        .step-number {
+            display: inline-block;
+            background-color: #ff5500;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .step-content h3 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .step-content p {
+            color: #8b949e;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #161b22;
+            border-top: 1px solid #30363d;
+            margin-top: 50px;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PowerPulse Energy</h1>
+        <p>Conheça a linha de produção por trás de cada lata de energia</p>
+    </header>
+
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#etapas">Etapas de Produção</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="container">
+        <section id="sobre" class="intro">
+            <h2>Processo Fabril de Alta Tecnologia</h2>
+            <p>
+                A fabricação de bebidas energéticas exige rigorosos padrões de higiene, precisão nas fórmulas químicas e automação avançada. Navegue abaixo para entender como cada ingrediente é tratado desde a recepção até a distribuição final.
+            </p>
+        </section>
+
+        <section id="etapas">
+            <div class="step">
+                <div class="step-img">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Tratamento de Água">
+                </div>
+                <div class="step-content">
+                    <span class="step-number">Etapa 01</span>
+                    <h3>Tratamento e Purificação de Água</h3>
+                    <p>A água é o ingrediente base e representa a maior fração do volume final da bebida.</p>
+                    <p>Nesta etapa, a água passa por processos de osmose reversa, filtragem por carbono ativo e esterilização UV para garantir consumo 100% puro e sem interferência no sabor.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-img">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="Dosagem de Ingredientes">
+                </div>
+                <div class="step-content">
+                    <span class="step-number">Etapa 02</span>
+                    <h3>Dosagem e Formulação da Base</h3>
+                    <p>Aqui, os componentes ativos são adicionados com precisão milimétrica em tanques de mistura pesados.</p>
+                    <p>São combinados cafeína, taurina, glucuronolactona, vitaminas do complexo B e extratos naturais (como guaraná e ginseng), criando o xarope concentrado.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-img">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Mistura e Adoçamento">
+                </div>
+                <div class="step-content">
+                    <span class="step-number">Etapa 03</span>
+                    <h3>Adoçamento e Aromatização</h3>
+                    <p>O xarope base recebe os edulcorantes/açúcares, acidulantes (como ácido cítrico) e os aromas característicos da marca.</p>
+                    <p>Agitadores de alta velocidade garantem a perfeita homogeneização da solução antes da diluição final com a água purificada.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-img">
+                    <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=600&q=80" alt="Carbonatação">
+                </div>
+                <div class="step-content">
+                    <span class="step-number">Etapa 04</span>
+                    <h3>Carbonatação (Gaseificação)</h3>
+                    <p>Para obter as borbulhas e o frescor característico do energético, o líquido resfriado passa por um carbonatador.</p>
+                    <p>O dióxido de carbono (CO2) é injetado sob alta pressão e em baixas temperaturas para maximizar a dissolução do gás no líquido.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-img">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Envase em Latas">
+                </div>
+                <div class="step-content">
+                    <span class="step-number">Etapa 05</span>
+                    <h3>Envase ISOBÁRICO em Latas</h3>
+                    <p>As latas de alumínio higienizadas entram na enchedora sob atmosfera controlada para não perder o gás.</p>
+                    <p>O envase ocorre em alta velocidade (milhares de latas por hora) e o fechamento hermético da tampa é feito imediatamente após o enchimento.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-img">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Pasteurização e Testes">
+                </div>
+                <div class="step-content">
+                    <span class="step-number">Etapa 06</span>
+                    <h3>Pasteurização e Inspeção</h3>
+                    <p>As latas seladas passam por um túnel de pasteurização (aquecimento suave seguido de resfriamento) para eliminar microorganismos.</p>
+                    <p>Inspetores ópticos automatizados verificam o nível do líquido e a vedação de cada lata antes da próxima etapa.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-img">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Embalagem e Logística">
+                </div>
+                <div class="step-content">
+                    <span class="step-number">Etapa 07</span>
+                    <h3>Empacotamento e Paletização</h3>
+                    <p>As latas aprovadas recebem a codificação de lote e validade por impressão a jato de tinta.</p>
+                    <p>Braços robóticos agrupam as latas em packs plásticos ou caixas de papelão e as organizam em paletes prontos para o envio.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contato">
+        <p>&copy; 2026 PowerPulse Energy Drink - Projeto Industrial GitHub Pages</p>
+        <p>Desenvolvido para demonstração técnica de processos industriais.</p>
+    </footer>
+
+</body>
+</html>
+Como publicar no GitHub Pages:
