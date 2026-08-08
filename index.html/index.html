@@ -1,11 +1,21 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vortex Energy | A Fábrica do Futuro</title>
+    <title>Vortex Energy | Fábrica de Energéticos</title>
     <style>
-        /* ESTILOS GERAIS */
+        /* --- ESTILOS GERAIS & VARIÁVEIS --- */
+        :root {
+            --bg-dark: #0a0b10;
+            --card-bg: #141722;
+            --accent-green: #00ff88;
+            --accent-cyan: #00e5ff;
+            --text-main: #f0f3f8;
+            --text-muted: #a0a8c0;
+            --border-color: #23293a;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,383 +24,427 @@
         }
 
         body {
-            background-color: #0b0e14;
-            color: #e0e6ed;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
+        a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+
+        /* --- CABEÇALHO & NAVEGAÇÃO --- */
         header {
-            background: linear-gradient(135deg, #1f2937, #111827);
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 3px solid #10b981;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: #10b981;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        header p {
-            color: #9ca3af;
-            font-size: 1.1rem;
+            background: rgba(20, 23, 34, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav {
-            background-color: #1f2937;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
         }
 
-        nav a {
-            color: #10b981;
-            text-decoration: none;
+        .logo {
+            font-size: 1.5rem;
             font-weight: bold;
-            transition: color 0.3s;
+            color: var(--accent-green);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        nav a:hover {
-            color: #34d399;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .intro h2 {
-            color: #ffffff;
-            margin-bottom: 1rem;
-        }
-
-        /* TIMELINE E ETAPAS */
-        .etapas-grid {
-            display: grid;
-            grid-template-columns: 1fr;
+        .nav-links {
+            display: flex;
+            list-style: none;
             gap: 2rem;
         }
 
-        .etapa-card {
-            background-color: #1f2937;
-            border-radius: 8px;
-            overflow: hidden;
-            border-left: 5px solid #10b981;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        .nav-links a {
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 80vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem 2rem;
+            background: radial-gradient(circle at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
         }
 
-        @media (min-width: 768px) {
-            .etapa-card {
-                flex-direction: row;
-            }
-            .etapa-card:nth-child(even) {
-                flex-direction: row-reverse;
-            }
+        .hero-content {
+            max-width: 800px;
         }
 
-        .etapa-img {
-            flex: 1;
-            min-height: 250px;
-            background-size: cover;
-            background-position: center;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .etapa-content {
-            flex: 1.5;
-            padding: 1.5rem;
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
-        .etapa-content h3 {
-            color: #10b981;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .etapa-content .numero {
-            font-size: 0.9rem;
-            background-color: #10b981;
-            color: #0b0e14;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
+        .btn {
             display: inline-block;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-cyan));
+            color: #000;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        /* --- PAINEL EM TEMPO REAL --- */
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--accent-cyan);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
             margin-bottom: 0.5rem;
         }
 
-        .etapa-content p {
-            color: #d1d5db;
-            margin-bottom: 1rem;
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-green);
         }
 
-        .etapa-content ul {
-            list-style-type: square;
-            margin-left: 1.2rem;
-            color: #9ca3af;
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            background: rgba(0, 255, 136, 0.2);
+            color: var(--accent-green);
+            margin-top: 0.5rem;
         }
 
-        /* SEÇÃO SOBRE A ESTRUTURA */
-        .especificacoes {
-            background-color: #111827;
+        /* --- PRODUTOS --- */
+        .products {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             padding: 2rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: var(--accent-green);
+        }
+
+        .can-icon {
+            width: 80px;
+            height: 140px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #000;
+        }
+
+        .flavor-original { background: linear-gradient(180deg, #00ff88, #00a859); }
+        .flavor-tropical { background: linear-gradient(180deg, #ffaa00, #ff5500); }
+        .flavor-zero { background: linear-gradient(180deg, #00e5ff, #006699); }
+
+        /* --- PROCESSOS / LINHA DE MONTAGEM --- */
+        .process {
+            background-color: #0e1018;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .process-steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            background: var(--card-bg);
+            padding: 1.5rem;
             border-radius: 8px;
-            margin-top: 3rem;
+            position: relative;
         }
 
-        .especificacoes h2 {
-            color: #10b981;
-            margin-bottom: 1rem;
-            text-align: center;
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
         }
 
-        .tabela-specs {
+        /* --- CONTATO & VISITA --- */
+        .contact {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
+            padding: 0.8rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-main);
+            outline: none;
         }
 
-        .tabela-specs th, .tabela-specs td {
-            border: 1px solid #374151;
-            padding: 12px;
-            text-align: left;
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent-green);
         }
 
-        .tabela-specs th {
-            background-color: #1f2937;
-            color: #10b981;
-        }
-
-        /* RODAPÉ */
+        /* --- RODAPÉ --- */
         footer {
-            background-color: #111827;
             text-align: center;
             padding: 2rem;
-            margin-top: 3rem;
-            border-top: 1px solid #374151;
-            color: #6b7280;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Vortex Energy Drink</h1>
-        <p>Conheça a tecnologia e os processos por trás da nossa produção de alta performance</p>
+        <nav>
+            <div class="logo">⚡ VORTEX FACTORY</div>
+            <ul class="nav-links">
+                <li><a href="#dashboard">Monitoramento</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#processo">Processo</a></li>
+                <li><a href="#contato">Visitas</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#intro">Início</a>
-        <a href="#etapas">Etapas de Produção</a>
-        <a href="#specs">Especificações</a>
-        <a href="#contato">Contato</a>
-    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tecnologia & Energia de Alta Performance</h1>
+            <p>Conheça a fábrica automatizada responsável por produzir a bebida energética com maior eficiência do mercado.</p>
+            <a href="#dashboard" class="btn">Ver Linha de Produção</a>
+        </div>
+    </section>
 
-    <div class="container">
+    <section id="dashboard" class="dashboard">
+        <h2 class="section-title">Painel de Operações da Fábrica</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Latas Produzidas (Hoje)</h3>
+                <div class="stat-value" id="counter-cans">142,850</div>
+                <div class="status-badge">Dentro da Meta</div>
+            </div>
+            <div class="stat-card">
+                <h3>Velocidade da Esteira</h3>
+                <div class="stat-value"><span id="speed-val">1,200</span> <small style="font-size:1rem;">l/min</small></div>
+                <div class="status-badge">Operação Normal</div>
+            </div>
+            <div class="stat-card">
+                <h3>Temperatura de Envasamento</h3>
+                <div class="stat-value"><span id="temp-val">3.8</span> °C</div>
+                <div class="status-badge">Ideal (2-4°C)</div>
+            </div>
+            <div class="stat-card">
+                <h3>Status da Planta</h3>
+                <div class="stat-value" style="color: var(--accent-green); font-size: 1.8rem; margin-top: 0.5rem;">ONLINE</div>
+                <div class="status-badge">Eficiência 99.4%</div>
+            </div>
+        </div>
+    </section>
 
-        <section id="intro" class="intro">
-            <h2>Processo Industrial de Energéticos</h2>
-            <p>
-                A fabricação de bebidas energéticas exige precisão microbiológica, controle rigoroso de qualidade 
-                e automação avançada. Navegue abaixo para visualizar cada fase da produção, desde a purificação da água 
-                até a distribuição final.
-            </p>
-        </section>
+    <section id="produtos" class="products">
+        <h2 class="section-title">Nossos Energéticos</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="can-icon flavor-original">VTX</div>
+                <h3>Vortex Original</h3>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Sabor clássico com dose dupla de taurina e cafeína anidra.</p>
+            </div>
+            <div class="product-card">
+                <div class="can-icon flavor-tropical">TRP</div>
+                <h3>Vortex Tropical Blast</h3>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Fusão de frutas tropicais com eletrólitos para hidratação rápida.</p>
+            </div>
+            <div class="product-card">
+                <div class="can-icon flavor-zero">ZRO</div>
+                <h3>Vortex Zero Sugar</h3>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Zero calorias, máximo foco e energia sustentada.</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="etapas" class="etapas-grid">
+    <section id="processo" class="process">
+        <h2 class="section-title">Etapas da Fabricação</h2>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <h3>Mistura & Dosagem</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                    Ingredientes ativos e vitaminas são dosados por precisão computadorizada em água ultra-filtrada.
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <h3>Carbonatação</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                    Injeção de $CO_2$ em baixas temperaturas para garantir a efervescência exata do produto.
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <h3>Envasamento Flash</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                    Enchimento asséptico e selagem ultra-rápida de 1.200 latas por minuto.
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <h3>Controle de Qualidade</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                    Inspeção óptica por IA para verificar selagem, volume e padrão visual das latas.
+                </p>
+            </div>
+        </div>
+    </section>
 
-            <article class="etapa-card">
-                <div class="etapa-img" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="etapa-content">
-                    <span class="numero">Etapa 01</span>
-                    <h3>Tratamento e Purificação da Água</h3>
-                    <p>
-                        A água é o ingrediente principal da bebida. Ela passa por um processo rigoroso de purificação 
-                        para garantir que esteja livre de minerais em excesso, impurezas e microorganismos.
-                    </p>
-                    <ul>
-                        <li>Filtração por areia e carbão ativado</li>
-                        <li>Osmose reversa para deionização</li>
-                        <li>Esterilização por luz ultravioleta (UV)</li>
-                    </ul>
-                </div>
-            </article>
+    <section id="contato" class="contact">
+        <h2 class="section-title">Agende uma Visita Técnica</h2>
+        <form id="visit-form" onsubmit="event.preventDefault(); alert('Solicitação enviada com sucesso!');">
+            <div class="form-group">
+                <label for="name">Nome / Empresa:</label>
+                <input type="text" id="name" required placeholder="Digite seu nome ou empresa">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail Profissional:</label>
+                <input type="email" id="email" required placeholder="seuemail@exemplo.com">
+            </div>
+            <div class="form-group">
+                <label for="type">Interesse da Visita:</label>
+                <select id="type">
+                    <option value="tech">Tour Tecnológico / Automação</option>
+                    <option value="business">Parceria Comercial</option>
+                    <option value="academic">Visita Acadêmica</option>
+                </select>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Solicitar Agendamento</button>
+        </form>
+    </section>
 
-            <article class="etapa-card">
-                <div class="etapa-img" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="etapa-content">
-                    <span class="numero">Etapa 02</span>
-                    <h3>Dosagem e Formulação do Xarope</h3>
-                    <p>
-                        Nesta fase, os ingredientes ativos e aromatizantes são adicionados em tanques emoldurados em aço inox. 
-                        A mistura é agitada até atingir total homogeneização.
-                    </p>
-                    <ul>
-                        <li>Adição de Taurina, Cafeína e Complexo B</li>
-                        <li>Incorporação de açúcares ou adoçantes</li>
-                        <li>Mistura de aromatizantes e acidulantes (Ácido Cítrico)</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="etapa-card">
-                <div class="etapa-img" style="background-image: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="etapa-content">
-                    <span class="numero">Etapa 03</span>
-                    <h3>Pasteurização do Xarope</h3>
-                    <p>
-                        Para garantir a segurança alimentar e aumentar a vida útil do produto, o xarope passa por um tratamento 
-                        térmico controlado antes de receber a gaseificação.
-                    </p>
-                    <ul>
-                        <li>Aquecimento rápido a altas temperaturas (HTST)</li>
-                        <li>Manutenção térmica por segundos específicos</li>
-                        <li>Resfriamento imediato em trocadores de calor</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="etapa-card">
-                <div class="etapa-img" style="background-image: url('https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="etapa-content">
-                    <span class="numero">Etapa 04</span>
-                    <h3>Carbonatação (Injeção de CO2)</h3>
-                    <p>
-                        A mistura resfriada é enviada ao carbonatador, onde o dióxido de carbono ($CO_2$) é injetado sob 
-                        pressão para dar a efervescência característica dos energéticos.
-                    </p>
-                    <ul>
-                        <li>Injeção controlada de $CO_2$ de alta pureza</li>
-                        <li>Controle rigoroso de pressão e temperatura</li>
-                        <li>Estabilização do gás na bebida líquida</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="etapa-card">
-                <div class="etapa-img" style="background-image: url('https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="etapa-content">
-                    <span class="numero">Etapa 05</span>
-                    <h3>Envasamento Isobarárico em Latas</h3>
-                    <p>
-                        As latas de alumínio higienizadas são preenchidas rapidamente sob pressão contínua para evitar a 
-                        perda de gás carbônico durante o enchimento.
-                    </p>
-                    <ul>
-                        <li>Enxágue e sanitização das latas vazias</li>
-                        <li>Enchimento por gravidade e pressão (Envasadora Isobarárica)</li>
-                        <li>Injeção de gás inerte no gargalo antes da selagem</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="etapa-card">
-                <div class="etapa-img" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="etapa-content">
-                    <span class="numero">Etapa 06</span>
-                    <h3>Cravação da Tampa e Lacração</h3>
-                    <p>
-                        As latas recebem suas tampas herméticas imediatamente após o preenchimento, selando o produto e 
-                        garantindo a retenção da pressão interna e do gás.
-                    </p>
-                    <ul>
-                        <li>Posicionamento automatizado das tampas</li>
-                        <li>Dobra e cravação mecânica das bordas da lata</li>
-                        <li>Teste de vazamento e integridade do lacre</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="etapa-card">
-                <div class="etapa-img" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="etapa-content">
-                    <span class="numero">Etapa 07</span>
-                    <h3>Codificação e Datador Industrial</h3>
-                    <p>
-                        Cada lata individual passa por um sistema de impressão a laser ou jato de tinta para registro 
-                        de informações obrigatórias de rastreabilidade.
-                    </p>
-                    <ul>
-                        <li>Impressão da data de fabricação e validade</li>
-                        <li>Gravação do lote de produção</li>
-                        <li>Código de barras e matriz de dados (DataMatrix)</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="etapa-card">
-                <div class="etapa-img" style="background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="etapa-content">
-                    <span class="numero">Etapa 08</span>
-                    <h3>Empacotamento e Paletização</h3>
-                    <p>
-                        As latas prontas são agrupadas em fardos por seladoras térmicas e organizadas em pallets de madeira 
-                        por braços robóticos industriais para transporte.
-                    </p>
-                    <ul>
-                        <li>Agrupamento em pack de 6, 12 ou 24 unidades</li>
-                        <li>Envolvimento em filme plástico termoencolhível</li>
-                        <li>Paletização automatizada para o centro de distribuição</li>
-                    </ul>
-                </div>
-            </article>
-
-        </section>
-
-        <section id="specs" class="especificacoes">
-            <h2>Dados Operacionais da Fábrica</h2>
-            <p style="text-align: center; color: #9ca3af;">Capacidade técnica da linha de montagem e envase.</p>
-            
-            <table class="tabela-specs">
-                <thead>
-                    <tr>
-                        <th>Parâmetro</th>
-                        <th>Capacidade / Especificação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Velocidade de Envase</td>
-                        <td>60.000 latas / hora</td>
-                    </tr>
-                    <tr>
-                        <td>Pressão de Carbonatação</td>
-                        <td>3.8 a 4.2 Volúmenes de CO2</td>
-                    </tr>
-                    <tr>
-                        <td>Temperatura de Envase</td>
-                        <td>4°C a 6°C</td>
-                    </tr>
-                    <tr>
-                        <td>Eficiência Térmica da Pasteurização</td>
-                        <td>99.9% de eliminação bacteriana</td>
-                    </tr>
-                    <tr>
-                        <td>Padrão de Qualidade</td>
-                        <td>ISO 22000 / HACCP Certificados</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-    </div>
-
-    <footer id="contato">
-        <p>&copy; 2026 Vortex Energy Drink Inc. Todos os direitos reservados.</p>
-        <p>Desenvolvido para publicação via GitHub Pages.</p>
+    <footer>
+        <p>&copy; 2026 Vortex Energy Factory. Projeto fictício para fins de demonstração no GitHub.</p>
     </footer>
 
+    <script>
+        // Simulação de atualização de dados em tempo real no painel da fábrica
+        let canCount = 142850;
+
+        function updateMetrics() {
+            // Aumenta contador de latas aleatoriamente
+            canCount += Math.floor(Math.random() * 15) + 5;
+            document.getElementById('counter-cans').innerText = canCount.toLocaleString('pt-BR');
+
+            // Flutuação na velocidade da esteira
+            const speed = 1180 + Math.floor(Math.random() * 40);
+            document.getElementById('speed-val').innerText = speed.toLocaleString('pt-BR');
+
+            // Flutuação na temperatura
+            const temp = (3.5 + Math.random() * 0.6).toFixed(1);
+            document.getElementById('temp-val').innerText = temp;
+        }
+
+        // Atualiza as métricas a cada 2 segundos
+        setInterval(updateMetrics, 2000);
+    </script>
 </body>
 </html>
